@@ -2,21 +2,137 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Passion+One&display=swap" rel="stylesheet">
 <style>
-p {
+
+.time-container {
   text-align: center;
-  font-size: 60px;
-  margin-top: 0px;
+    width: 90%;
+    margin: auto;
 }
+.time-text {
+  /* text-align: center; */
+  /* font-size: 60px; */
+  font-family: 'Passion One', cursive;
+  margin-top: 15px;
+  font-size: 30px;
+  margin-bottom: 0px;
+}
+#heading {
+  text-align: center;
+  font-family: 'Passion One', cursive;
+  font-size: 57px;
+  margin-bottom: 15px;
+
+}
+.flex-container {
+  display: flex;
+  justify-content: center;
+  
+}
+.flex-item {
+  /* background-color: #f1f1f1; */
+  margin: 10px;
+  width: 175px;
+  height: 170px;
+  /* font-size: 30px; */
+  position: relative;
+}
+.value-container {
+  width: 95%;
+  height: 80%;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 5px;
+}
+.value-text {
+  font-family: 'Passion One', cursive;
+  font-size: 70px;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#days-background {
+  background-color: #D6D3E2;
+  box-shadow: 2px 5px 5px #D6D3E2;
+}
+#hours-background {
+  background-color: #EB130E;
+  box-shadow: 2px 5px 5px #EB130E;
+}
+#minutes-background {
+  background-color: #EBC17F;
+  box-shadow: 2px 5px 5px #EBC17F;
+}
+#seconds-background {
+  background-color: #4485F5;
+  box-shadow: 1px 2px 4px #4485f5;
+}
+
+#days {
+  color: white;
+}
+#hours {
+  color: white;
+}
+
+#minutes {
+  color: #EB130E;
+}
+
+#seconds {
+  color: white;
+}
+
+
 </style>
 </head>
 <body>
-
-<p id="demo"></p>
+  <div>
+    <h1 id="heading">National Voter Registration Day in</h1>
+    <div class="flex-container">
+      <div class="flex-item">
+        <div class="value-container" id="days-background">
+          <span id="days" class="value-text">OO</span>
+        </div>
+        <div class="time-container">
+          <p class="time-text">Days</p>
+        </div>
+      </div>
+      <div class="flex-item">
+        <div class="value-container" id="hours-background">
+          <span id="hours" class="value-text">OO</span>
+        </div>
+        <div class="time-container">
+          <p class="time-text">Hours</p>
+        </div>
+      </div>
+      <div class="flex-item">
+        <div class="value-container" id="minutes-background">
+          <span id="minutes" class="value-text">OO</span>
+        </div>
+        <div class="time-container">
+          <p class="time-text">Minutes</p>
+        </div>
+      </div>
+      <div class="flex-item">
+        <div class="value-container" id="seconds-background">
+          <span id="seconds" class="value-text">OO</span>
+        </div>
+        <div class="time-container">
+          <p class="time-text">Seconds</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <script>
 // Set the date we're counting down to
-var countDownDate = new Date("Jan 5, 2024 15:37:25").getTime();
+var countDownDate = new Date("Nov 8, 2022 01:00:00").getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -32,18 +148,27 @@ var x = setInterval(function() {
   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  document.getElementById("days").innerHTML = days;
+  document.getElementById("hours").innerHTML = hours;
+  document.getElementById("minutes").innerHTML = minutes;
+  document.getElementById("seconds").innerHTML = seconds;
     
   // Output the result in an element with id="demo"
-  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
+  // document.getElementById("demo").innerHTML = days + "Days " + hours + "Hours "
+  // + minutes + "m " + seconds + "s ";
     
   // If the count down is over, write some text 
   if (distance < 0) {
     clearInterval(x);
-    document.getElementById("demo").innerHTML = "EXPIRED";
+    document.getElementById("days").innerHTML = "00";
+    document.getElementById("hours").innerHTML = "00";
+    document.getElementById("minutes").innerHTML = "00";
+    document.getElementById("seconds").innerHTML = "00";
   }
 }, 1000);
 </script>
 
 </body>
 </html>
+
